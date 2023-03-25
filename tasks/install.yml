@@ -1,0 +1,17 @@
+- name: Install containerd Kubernetes Packages
+  apt:
+    pkg:
+      - containerd
+      - kubelet
+      - kubeadm
+      - kubectl
+    update_cache: yes
+
+- name: Hold Kubernetes Packages
+  dpkg_selections:
+    name: "{{item}}"
+    selection: hold
+  with_items:
+    - kubelet
+    - kubeadm
+    - kubectl
