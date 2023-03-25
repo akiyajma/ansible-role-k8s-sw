@@ -4,6 +4,9 @@
   - name: Init Configuration
     ansible.builtin.import_tasks: init.yml
     tags: init
+  - name: Install Software
+    ansible.builtin.import_tasks: install.yml
+    tags: install
   - name: Generate Configuration
     ansible.builtin.import_tasks: config.yml
     tags: config
